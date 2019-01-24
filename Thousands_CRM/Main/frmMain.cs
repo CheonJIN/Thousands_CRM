@@ -32,14 +32,32 @@ namespace Thousands_CRM.Main
                     Dispose();
                     break;
             }
+
+            Get_Customer();
         }
 
-        private void enrollToolStripMenuItem_Click(object sender, EventArgs e)
+        private void enrollToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            using(Enroll.frmEnroll frm = new Enroll.frmEnroll())
+            using (Enroll.frmEnroll frm = new Enroll.frmEnroll())
             {
                 frm.ShowDialog();
             }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tpCustomers)
+            {
+                Get_Customer();
+            }
+        }
+
+        private void Get_Customer()
+        {
+            string query = string.Format("SELECT * FROM t_customer");
+            MySql mysql = MySql.Instance;
+            DataTable dt = mysql.Get_DBTable(query);
+            dgvCustomers.DataSource = dt;
         }
     }
 }

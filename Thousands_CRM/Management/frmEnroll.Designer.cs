@@ -35,15 +35,15 @@
             this.tbCompanyName = new System.Windows.Forms.TextBox();
             this.lblArea = new System.Windows.Forms.Label();
             this.tbArea = new System.Windows.Forms.TextBox();
-            this.tpEnrollCustomer = new System.Windows.Forms.TabPage();
             this.btnEnrollCompany = new System.Windows.Forms.Button();
+            this.tpEnrollCustomer = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tbCustomerName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbMobileNumber = new System.Windows.Forms.TextBox();
-            this.btnEnrollCustomer = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnEnrollCustomer = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.cbCompany = new System.Windows.Forms.ComboBox();
@@ -62,8 +62,9 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(450, 279);
+            this.tabControl1.Size = new System.Drawing.Size(407, 196);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tpEnrollCompany
             // 
@@ -71,7 +72,7 @@
             this.tpEnrollCompany.Location = new System.Drawing.Point(4, 22);
             this.tpEnrollCompany.Name = "tpEnrollCompany";
             this.tpEnrollCompany.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEnrollCompany.Size = new System.Drawing.Size(442, 253);
+            this.tpEnrollCompany.Size = new System.Drawing.Size(399, 170);
             this.tpEnrollCompany.TabIndex = 0;
             this.tpEnrollCompany.Text = "Company";
             this.tpEnrollCompany.UseVisualStyleBackColor = true;
@@ -97,7 +98,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(436, 247);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(393, 164);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblCompanyName
@@ -138,27 +139,27 @@
             this.tbArea.Size = new System.Drawing.Size(206, 20);
             this.tbArea.TabIndex = 3;
             // 
+            // btnEnrollCompany
+            // 
+            this.btnEnrollCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnrollCompany.Location = new System.Drawing.Point(315, 158);
+            this.btnEnrollCompany.Name = "btnEnrollCompany";
+            this.btnEnrollCompany.Size = new System.Drawing.Size(75, 15);
+            this.btnEnrollCompany.TabIndex = 4;
+            this.btnEnrollCompany.Text = "Enroll";
+            this.btnEnrollCompany.UseVisualStyleBackColor = true;
+            this.btnEnrollCompany.Click += new System.EventHandler(this.btnEnrollCompany_Click);
+            // 
             // tpEnrollCustomer
             // 
             this.tpEnrollCustomer.Controls.Add(this.tableLayoutPanel2);
             this.tpEnrollCustomer.Location = new System.Drawing.Point(4, 22);
             this.tpEnrollCustomer.Name = "tpEnrollCustomer";
             this.tpEnrollCustomer.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEnrollCustomer.Size = new System.Drawing.Size(442, 253);
+            this.tpEnrollCustomer.Size = new System.Drawing.Size(399, 170);
             this.tpEnrollCustomer.TabIndex = 1;
             this.tpEnrollCustomer.Text = "Customer";
             this.tpEnrollCustomer.UseVisualStyleBackColor = true;
-            // 
-            // btnEnrollCompany
-            // 
-            this.btnEnrollCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnrollCompany.Location = new System.Drawing.Point(358, 221);
-            this.btnEnrollCompany.Name = "btnEnrollCompany";
-            this.btnEnrollCompany.Size = new System.Drawing.Size(75, 23);
-            this.btnEnrollCompany.TabIndex = 4;
-            this.btnEnrollCompany.Text = "Enroll";
-            this.btnEnrollCompany.UseVisualStyleBackColor = true;
-            this.btnEnrollCompany.Click += new System.EventHandler(this.btnEnrollCompany_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -185,7 +186,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(436, 247);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(393, 164);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label1
@@ -226,17 +227,6 @@
             this.tbMobileNumber.Size = new System.Drawing.Size(206, 20);
             this.tbMobileNumber.TabIndex = 3;
             // 
-            // btnEnrollCustomer
-            // 
-            this.btnEnrollCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnrollCustomer.Location = new System.Drawing.Point(358, 221);
-            this.btnEnrollCustomer.Name = "btnEnrollCustomer";
-            this.btnEnrollCustomer.Size = new System.Drawing.Size(75, 23);
-            this.btnEnrollCustomer.TabIndex = 4;
-            this.btnEnrollCustomer.Text = "Enroll";
-            this.btnEnrollCustomer.UseVisualStyleBackColor = true;
-            this.btnEnrollCustomer.Click += new System.EventHandler(this.btnEnrollCustomer_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -247,6 +237,17 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Phone number :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnEnrollCustomer
+            // 
+            this.btnEnrollCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnrollCustomer.Location = new System.Drawing.Point(315, 138);
+            this.btnEnrollCustomer.Name = "btnEnrollCustomer";
+            this.btnEnrollCustomer.Size = new System.Drawing.Size(75, 23);
+            this.btnEnrollCustomer.TabIndex = 4;
+            this.btnEnrollCustomer.Text = "Enroll";
+            this.btnEnrollCustomer.UseVisualStyleBackColor = true;
+            this.btnEnrollCustomer.Click += new System.EventHandler(this.btnEnrollCustomer_Click);
             // 
             // label4
             // 
@@ -269,6 +270,9 @@
             // 
             // cbCompany
             // 
+            this.cbCompany.AllowDrop = true;
+            this.cbCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCompany.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbCompany.FormattingEnabled = true;
             this.cbCompany.Location = new System.Drawing.Point(95, 100);
@@ -280,9 +284,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 279);
+            this.ClientSize = new System.Drawing.Size(407, 196);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmEnroll";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Enroll";
             this.tabControl1.ResumeLayout(false);
             this.tpEnrollCompany.ResumeLayout(false);

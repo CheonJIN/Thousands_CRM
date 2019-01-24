@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enroll\frmEnroll.cs">
+    <Compile Include="Management\frmEnroll.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Enroll\frmEnroll.Designer.cs">
+    <Compile Include="Management\frmEnroll.Designer.cs">
       <DependentUpon>frmEnroll.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginHandler.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton.cs" />
-    <EmbeddedResource Include="Enroll\frmEnroll.resx">
+    <EmbeddedResource Include="Management\frmEnroll.resx">
       <DependentUpon>frmEnroll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\frmLogin.resx">
