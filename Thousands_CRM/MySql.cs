@@ -29,9 +29,9 @@ namespace Thousands_CRM
 
         public void Open_Database()
         {
-            if (Connection != null)
+            if (Connection.State == ConnectionState.Closed)
             {
-                Connection.Close();
+                Connection.Open();
             }
         }
 
@@ -56,10 +56,23 @@ namespace Thousands_CRM
                 Connection.Open();
             }
 
-            MySqlCommand cmd = new MySqlCommand(query, Connection);
-            cmd.ExecuteNonQuery();
+            MySqlCommand cmd = null;
+            try
+            {
+                cmd = new MySqlCommand(query, Connection);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             return cmd;
+        }
+
+        public DataSet Get_DataSet(string query)
+        {
+            return MySqlHelper.ExecuteDataset(Connection, query);
         }
 
         public DataTable Get_DBTable(string query)
@@ -69,6 +82,16 @@ namespace Thousands_CRM
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             return dt;
+        }
+
+        public List<string> Get_ListString(string query)
+        {
+            //MySql mysql = MySql.Instance;
+            //string query = string.Format("SELECT name FROM t_company");
+            MySqlCommand cmd = Set_SqlQuery(query);
+            List<string> results = Data_Reader_all(cmd.ExecuteReader());
+
+            return results;
         }
 
         public List<string> Data_Reader_all(MySqlDataReader dataReader)
@@ -104,12 +127,12 @@ namespace Thousands_CRM
             string result = "";
 
             MySqlDataReader reader = dataReader;
-            
+   
             try
             {
-                while(reader.Read())
+                while (reader.Read())
                 {
-                    result = (string)reader[column_name];
+                    result = reader[column_name].ToString();
                 }
             }
             catch (Exception ex)

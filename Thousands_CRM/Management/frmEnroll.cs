@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -43,10 +38,10 @@ namespace Thousands_CRM.Enroll
                     return;
                 }
 
-                MySql mysql = MySql.Instance;
-                string query = string.Format("SELECT name FROM t_company");
-                MySqlCommand cmd = mysql.Set_SqlQuery(query);
-                List<string> results = mysql.Data_Reader_all(cmd.ExecuteReader());
+                lblStatusCompany.Text = "";
+                lblStatusCustomer.Text = "";
+
+                List<string> results = Set_ComboItemsByCompany();
 
                 foreach(string s in results)
                 {
@@ -54,6 +49,16 @@ namespace Thousands_CRM.Enroll
                 }
                 cbCompany.SelectedIndex = 0;
             }
+        }
+
+        public List<string> Set_ComboItemsByCompany()
+        {
+            MySql mysql = MySql.Instance;
+            string query = string.Format("SELECT name FROM t_company");
+            MySqlCommand cmd = mysql.Set_SqlQuery(query);
+            List<string> results = mysql.Data_Reader_all(cmd.ExecuteReader());
+
+            return results;
         }
 
         private void Enroll_Data(ENROLL_TYPE etype)
@@ -72,6 +77,9 @@ namespace Thousands_CRM.Enroll
                         }
                         query = string.Format("INSERT INTO t_company(name, area) VALUES('{0}', '{1}');", tbCompanyName.Text, tbArea.Text);
                         mysql.Set_SqlQuery(query);
+                        lblStatusCompany.Text = string.Format("Finished enroll the '{0}'...", tbCompanyName.Text);
+                        tbCompanyName.Text = "";
+                        tbArea.Text = "";
                         Console.WriteLine("Insert a data in t_company");
                         break;
 
@@ -80,8 +88,11 @@ namespace Thousands_CRM.Enroll
                         {
                             return;
                         }
-                        query = string.Format("INSERT INTO t_customer VALUES ('{0}', '{1}', '{2}', '{3}');", cbCompany.SelectedItem, tbCustomerName.Text, tbMobileNumber.Text, tbPhoneNumber.Text);
+                        query = string.Format("INSERT INTO t_customer VALUES ('{0}', '{1}', '{2}', '{3}', '{4}');", cbCompany.SelectedItem, tbCustomerName.Text, tbMobileNumber.Text, tbPhoneNumber.Text, tbDepartment.Text);
                         mysql.Set_SqlQuery(query);
+                        lblStatusCustomer.Text = string.Format("Finished enroll the '{0}'...", tbCustomerName.Text);
+                        tbCustomerName.Text = "";
+                        tbMobileNumber.Text = "";
                         Console.WriteLine("insert a data in t_customer");
                         break;
                 }
@@ -90,7 +101,7 @@ namespace Thousands_CRM.Enroll
             {
                 if (etype == ENROLL_TYPE.COMPANY)
                 {
-                    MessageBox.Show(string.Format("'{0}'는 이미 등록 되어있습니다.", tbCompanyName.Text));
+                    MessageBox.Show(string.Format("'{0}'은(는) 이미 등록 되어있습니다.", tbCompanyName.Text));
                 }
             }
             catch (Exception ex)
@@ -132,5 +143,12 @@ namespace Thousands_CRM.Enroll
 
             return true;
         }
+
+        private void tpEnrollCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
