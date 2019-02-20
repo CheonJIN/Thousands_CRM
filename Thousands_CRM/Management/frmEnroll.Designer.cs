@@ -35,7 +35,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.tbCompanyName = new System.Windows.Forms.TextBox();
-            this.lblArea = new System.Windows.Forms.Label();
+            this.lblAreaMain = new System.Windows.Forms.Label();
             this.tbArea = new System.Windows.Forms.TextBox();
             this.btnEnrollCompany = new System.Windows.Forms.Button();
             this.tpEnrollCustomer = new System.Windows.Forms.TabPage();
@@ -53,6 +53,11 @@
             this.lblDepartment = new System.Windows.Forms.Label();
             this.tbDepartment = new System.Windows.Forms.TextBox();
             this.btnEnrollCustomer = new System.Windows.Forms.Button();
+            this.lblSalesManager = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblAreaSub = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tpEnrollCompany.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -110,19 +115,25 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.lblCompanyName, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tbCompanyName, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblArea, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblAreaMain, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tbArea, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnEnrollCompany, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnEnrollCompany, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lblSalesManager, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblAddress, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lblAreaSub, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 182);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -131,11 +142,11 @@
             // 
             this.lblCompanyName.AutoSize = true;
             this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblCompanyName.Location = new System.Drawing.Point(48, 19);
+            this.lblCompanyName.Location = new System.Drawing.Point(3, 19);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(41, 26);
+            this.lblCompanyName.Size = new System.Drawing.Size(86, 26);
             this.lblCompanyName.TabIndex = 0;
-            this.lblCompanyName.Text = "Name :";
+            this.lblCompanyName.Text = "Company name :";
             this.lblCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbCompanyName
@@ -146,16 +157,16 @@
             this.tbCompanyName.Size = new System.Drawing.Size(206, 20);
             this.tbCompanyName.TabIndex = 1;
             // 
-            // lblArea
+            // lblAreaMain
             // 
-            this.lblArea.AutoSize = true;
-            this.lblArea.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblArea.Location = new System.Drawing.Point(54, 45);
-            this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(35, 26);
-            this.lblArea.TabIndex = 2;
-            this.lblArea.Text = "Area :";
-            this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAreaMain.AutoSize = true;
+            this.lblAreaMain.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblAreaMain.Location = new System.Drawing.Point(26, 45);
+            this.lblAreaMain.Name = "lblAreaMain";
+            this.lblAreaMain.Size = new System.Drawing.Size(63, 26);
+            this.lblAreaMain.TabIndex = 2;
+            this.lblAreaMain.Text = "Area(main) :";
+            this.lblAreaMain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbArea
             // 
@@ -347,6 +358,53 @@
             this.btnEnrollCustomer.UseVisualStyleBackColor = true;
             this.btnEnrollCustomer.Click += new System.EventHandler(this.btnEnrollCustomer_Click);
             // 
+            // lblSalesManager
+            // 
+            this.lblSalesManager.AutoSize = true;
+            this.lblSalesManager.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSalesManager.Location = new System.Drawing.Point(3, 97);
+            this.lblSalesManager.Name = "lblSalesManager";
+            this.lblSalesManager.Size = new System.Drawing.Size(86, 26);
+            this.lblSalesManager.TabIndex = 5;
+            this.lblSalesManager.Text = "Sales manager :";
+            this.lblSalesManager.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAddress.Location = new System.Drawing.Point(3, 123);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(86, 26);
+            this.lblAddress.TabIndex = 6;
+            this.lblAddress.Text = "Address :";
+            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblAreaSub
+            // 
+            this.lblAreaSub.AutoSize = true;
+            this.lblAreaSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAreaSub.Location = new System.Drawing.Point(3, 71);
+            this.lblAreaSub.Name = "lblAreaSub";
+            this.lblAreaSub.Size = new System.Drawing.Size(86, 26);
+            this.lblAreaSub.TabIndex = 7;
+            this.lblAreaSub.Text = "Area(sub) :";
+            this.lblAreaSub.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(95, 126);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(95, 100);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(206, 20);
+            this.textBox2.TabIndex = 9;
+            // 
             // frmEnroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,7 +439,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblCompanyName;
         private System.Windows.Forms.TextBox tbCompanyName;
-        private System.Windows.Forms.Label lblArea;
+        private System.Windows.Forms.Label lblAreaMain;
         private System.Windows.Forms.TextBox tbArea;
         private System.Windows.Forms.Button btnEnrollCompany;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -400,5 +458,10 @@
         private System.Windows.Forms.ToolStripStatusLabel lblStatusCompany;
         private System.Windows.Forms.StatusStrip statusStrip2;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusCustomer;
+        private System.Windows.Forms.Label lblSalesManager;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Label lblAreaSub;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

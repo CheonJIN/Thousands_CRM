@@ -34,8 +34,8 @@ namespace Thousands_CRM.Search
             }
 
             DataGridViewRow selRow = dgvCustomers.SelectedRows[0];
-            frmMain.Set_Data(selRow);
-            frmMain.Init_RegWorkListView();
+            //frmMain.Set_Data(selRow);
+            frmMain.Init_RegWorkListView(dgvCustomers.DataSource);
             this.Close();
         }
 

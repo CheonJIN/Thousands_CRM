@@ -22,6 +22,7 @@ namespace Thousands_CRM
                 if (loginHandler.LoginCheck(tbUserID.Text, tbPassword.Text))
                 {
                     string userName = tbUserID.Text;
+                    User.userName = userName;
                     DialogResult = DialogResult.OK;
                 }
                 else

@@ -37,13 +37,12 @@ namespace Thousands_CRM
 
         public void Close_Database()
         {
-            if (Connection != null)
+            if (Connection.State == ConnectionState.Open)
             {
                 Connection.Close();
             }
         }
 
-        //public MySqlCommand Get_Login(string id, string pwd)
         public MySqlCommand Set_SqlQuery(string query)
         {
             if (Connection == null)
@@ -51,11 +50,7 @@ namespace Thousands_CRM
                 return null;
             }
 
-            if (Connection.State == ConnectionState.Closed)
-            {
-                Connection.Open();
-            }
-
+            Open_Database();
             MySqlCommand cmd = null;
             try
             {
@@ -67,7 +62,36 @@ namespace Thousands_CRM
                 MessageBox.Show(ex.Message);
             }
 
+            Close_Database();
+
             return cmd;
+        }
+
+        public string Get_SqlQueryCol(string query, string colName)
+        {
+            string result = "";
+
+            try
+            {
+                //MySqlCommand cmd = Set_SqlQuery(query);
+                Open_Database();
+                MySqlCommand cmd = new MySqlCommand(query, Connection);
+                // result = Data_Reader(cmd.ExecuteReader(), colName);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result = reader[colName].ToString();
+                }
+                Close_Database();
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return result;
         }
 
         public DataSet Get_DataSet(string query)
@@ -86,10 +110,11 @@ namespace Thousands_CRM
 
         public List<string> Get_ListString(string query)
         {
-            //MySql mysql = MySql.Instance;
-            //string query = string.Format("SELECT name FROM t_company");
             MySqlCommand cmd = Set_SqlQuery(query);
+
+            Open_Database();
             List<string> results = Data_Reader_all(cmd.ExecuteReader());
+            Close_Database();
 
             return results;
         }
@@ -99,7 +124,7 @@ namespace Thousands_CRM
             List<string> result = new List<string>();
 
             MySqlDataReader reader = dataReader;
-
+            Open_Database();
             try
             {
                 while(reader.HasRows)
@@ -117,7 +142,7 @@ namespace Thousands_CRM
                 MessageBox.Show(ex.Message);
             }
 
-            Connection.Close();
+            Close_Database();
 
             return result;
         }
@@ -127,7 +152,7 @@ namespace Thousands_CRM
             string result = "";
 
             MySqlDataReader reader = dataReader;
-   
+            //Open_Database();
             try
             {
                 while (reader.Read())
@@ -140,7 +165,7 @@ namespace Thousands_CRM
                 MessageBox.Show(ex.Message);
             }
 
-            Connection.Close();
+            //Close_Database();
 
             return result;
         }

@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Linq;
 
-public enum DIVISION
-{
-    SUPPORT,
-    QUESTION,
-    LICENSE
+namespace Thousands_CRM
+{ 
+    public enum DIVISION
+    {
+        SUPPORT,
+        QUESTION,
+        LICENSE
+    }
+
+    public static class User
+    {
+        public static string userName { set; get; }
+    }
 }

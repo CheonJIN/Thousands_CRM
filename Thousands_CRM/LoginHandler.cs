@@ -24,8 +24,9 @@ namespace Thousands_CRM
 
             string query = string.Format("SELECT id, password FROM t_user WHERE id = '{0}'", id);
 
-            MySqlCommand cmd = mysql.Set_SqlQuery(query);
-            string result = mysql.Data_Reader(cmd.ExecuteReader(), "password");
+            //MySqlCommand cmd = mysql.Set_SqlQuery(query);
+            //string result = mysql.Data_Reader(cmd.ExecuteReader(), "password");
+            string result = mysql.Get_SqlQueryCol(query, "password");
 
             if (result != password)
             {
