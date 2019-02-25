@@ -36,11 +36,6 @@ namespace Thousands_CRM.Main
             }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void enrollToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (Enroll.frmEnroll frm = new Enroll.frmEnroll())
@@ -96,7 +91,26 @@ namespace Thousands_CRM.Main
 
         private void dgvRegWorkData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            View_WorkData();
+            if (e.RowIndex == -1)
+            {
+                return;    
+            }
+
+            DataGridViewRow row = dgvRegWorkData.SelectedRows[0];
+            View_LicenseData(row);
+            View_WorkData(row);
+        }
+
+        private void dgvSupport_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+
+            DataGridViewRow row = dgvSupport.SelectedRows[0];
+
+            View_WorkData(row);
         }
 
         private void btnUserExpDate_Click(object sender, EventArgs e)
@@ -125,14 +139,34 @@ namespace Thousands_CRM.Main
 
         private void btnLookup_Click(object sender, EventArgs e)
         {
-            string query = string.Format(@"SELECT R.guid as No, U.id as User, R.company_name as Company, R.division as Division, R.customer_name as Name FROM t_register_work as R
-                                INNER JOIN t_user as U WHERE R.company_name LIKE '%{0}%';", tbLookup.Text);
+            string query = string.Format(@"SELECT R.guid as No, U.id as User, R.company_name as Company, R.support_type as Support_type, R.customer_name as Name FROM t_register_work as R INNER JOIN t_user as U WHERE R.company_name LIKE '%{0}%';", tbLookup.Text);
 
             dgvRegWorkData.DataSource = SqlServer.Get_DBTable(query);
         }
 
+        private void optionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Etc.frmOption frm = new Etc.frmOption())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tpLicenseList)
+            {
+                Set_LicenseData();
+            }
+            else if (tabControl1.SelectedTab == tpSupportList)
+            {
+                Set_SupportData();
+            }
+        }
+
         public void Set_Data(DataGridViewRow dataRow)
         {
+
         }
 
         public void Init_RegWorkListView(object dt = null)
@@ -143,8 +177,7 @@ namespace Thousands_CRM.Main
                 return;
             }
 
-            string query = @"SELECT R.guid as No, U.id as User, R.company_name as Company, R.division as Division, R.customer_name as Name FROM t_register_work as R
-                                INNER JOIN t_user as U;";
+            string query = @"SELECT R.guid as No, U.id as User, R.company_name as Company, R.support_type as Support_type, R.customer_name as Name FROM t_register_work as R INNER JOIN t_user as U;";
             dgvRegWorkData.DataSource = SqlServer.Get_DBTable(query);
 
             double colsSize = 0;
@@ -153,8 +186,6 @@ namespace Thousands_CRM.Main
                 colsSize += c.Width;
                 c.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
-
-            //splitContainer1.SplitterDistance = Convert.ToInt16(colsSize);
         }
 
         private void Init_RegisterWorkTab()
@@ -181,55 +212,61 @@ namespace Thousands_CRM.Main
             tbRegResponse.Text = "";
         }
 
-        private void View_WorkData()
+        private void View_LicenseData(DataGridViewRow row)
         {
-            if (dgvRegWorkData.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
-            foreach (DataGridViewRow row in dgvRegWorkData.SelectedRows)
-            {
-                string query = string.Format(@"SELECT l.ip, l.host, l.lum_target, l.dsls_target, l.mac, l.lic_count, l.explaration_date, l.lic_t, l.dsls_release, l.lan_card, l.solution, l.module, l.memo FROM t_lic_info as l WHERE l.manager_name = '{0}';"
+            string query = string.Format(@"SELECT l.ip, l.host, l.lum_target, l.dsls_target, l.mac, l.lic_count, l.explaration_date, l.lic_t, l.dsls_release, l.lan_card, l.solution, l.module, l.memo FROM t_lic_info as l WHERE l.manager_name = '{0}';"
                     , row.Cells[4].Value.ToString());
 
-                tbUserIP.Text = SqlServer.Get_SqlQueryCol(query, "ip");
-                tbUserHost.Text = SqlServer.Get_SqlQueryCol(query, "host");
-                tbUserLumTarget.Text = SqlServer.Get_SqlQueryCol(query, "lum_target");
-                tbUserDslsTarget.Text = SqlServer.Get_SqlQueryCol(query, "dsls_target");
-                tbUserMac.Text = SqlServer.Get_SqlQueryCol(query, "mac");
-                tbUserLicCount.Text = SqlServer.Get_SqlQueryCol(query, "lic_count");
+            tbUserIP.Text = SqlServer.Get_SqlQueryCol(query, "ip");
+            tbUserHost.Text = SqlServer.Get_SqlQueryCol(query, "host");
+            tbUserLumTarget.Text = SqlServer.Get_SqlQueryCol(query, "lum_target");
+            tbUserDslsTarget.Text = SqlServer.Get_SqlQueryCol(query, "dsls_target");
+            tbUserMac.Text = SqlServer.Get_SqlQueryCol(query, "mac");
+            tbUserLicCount.Text = SqlServer.Get_SqlQueryCol(query, "lic_count");
 
-                string date = SqlServer.Get_SqlQueryCol(query, "explaration_date");
-                if (!string.IsNullOrEmpty(date))
-                {
-                    DateTime d = Convert.ToDateTime(date);
-                    tbUserExpDate.Text = d.ToString("yyyy-MM-dd HH:mm");
-                }
-                else
-                {
-                    tbUserExpDate.Text = date;
-                }
-
-                tbUserDslsRelease.Text = SqlServer.Get_SqlQueryCol(query, "dsls_release");
-                tbUserMemo.Text = SqlServer.Get_SqlQueryCol(query, "memo");
-                cbLanCard.Text = SqlServer.Get_SqlQueryCol(query, "lan_card");
-                Set_SolutionData(SqlServer.Get_SqlQueryCol(query, "solution"));
-                string lict = SqlServer.Get_SqlQueryCol(query, "lic_t");
-
-                query = string.Format(@"SELECT name, mobile_number, phone_number, department, remote, tos, email FROM t_customer WHERE name = '{0}';"
-                    , row.Cells[4].Value.ToString());
-
-                tbUserManager.Text = SqlServer.Get_SqlQueryCol(query, "name");
-                tbUserMobile.Text = SqlServer.Get_SqlQueryCol(query, "mobile_number");
-                tbUserTel.Text = SqlServer.Get_SqlQueryCol(query, "phone_number");
-                tbUserDepartment.Text = SqlServer.Get_SqlQueryCol(query, "department");
-                tbUserEmail.Text = SqlServer.Get_SqlQueryCol(query, "email");
-                Set_radioValue(SqlServer.Get_SqlQueryCol(query, "remote"), SqlServer.Get_SqlQueryCol(query, "tos"), lict);
-
-                tbRegName.Text = tbUserManager.Text;
-                tbRegDepartment.Text = tbUserDepartment.Text;
+            string date = SqlServer.Get_SqlQueryCol(query, "explaration_date");
+            if (!string.IsNullOrEmpty(date))
+            {
+                DateTime d = Convert.ToDateTime(date);
+                tbUserExpDate.Text = d.ToString("yyyy-MM-dd HH:mm");
             }
+            else
+            {
+                tbUserExpDate.Text = date;
+            }
+
+            tbUserDslsRelease.Text = SqlServer.Get_SqlQueryCol(query, "dsls_release");
+            tbUserMemo.Text = SqlServer.Get_SqlQueryCol(query, "memo");
+            cbLanCard.Text = SqlServer.Get_SqlQueryCol(query, "lan_card");
+            Set_SolutionData(SqlServer.Get_SqlQueryCol(query, "solution"));
+            string lict = SqlServer.Get_SqlQueryCol(query, "lic_t");
+
+            query = string.Format(@"SELECT name, company_name, mobile_number, phone_number, department, remote, tos, email FROM t_customer WHERE name = '{0}';"
+                , row.Cells[4].Value.ToString());
+
+            tbUserManager.Text = SqlServer.Get_SqlQueryCol(query, "name");
+            tbUserMobile.Text = SqlServer.Get_SqlQueryCol(query, "mobile_number");
+            tbUserTel.Text = SqlServer.Get_SqlQueryCol(query, "phone_number");
+            tbUserDepartment.Text = SqlServer.Get_SqlQueryCol(query, "department");
+            tbUserEmail.Text = SqlServer.Get_SqlQueryCol(query, "email");
+
+            Set_radioValue(SqlServer.Get_SqlQueryCol(query, "remote"), SqlServer.Get_SqlQueryCol(query, "tos"), lict);
+        }
+
+        private void View_WorkData(DataGridViewRow row)
+        {
+            //string query = string.Format(@"SELECT * FROM t_register_work WHERE customer_name = '{0}' and work_date = '{1}'"
+            //    , row.Cells[4].Value.ToString(), row.Cells[0].Value.ToString());
+            string query = string.Format(@"SELECT r.company_name, r.customer_name, r.request, r.response, r.work_date, r.support_type, c.department FROM t_register_work as r INNER JOIN t_customer as c WHERE r.guid = '{0}';"
+                , row.Cells[0].Value.ToString());
+
+            tbRegName.Text = SqlServer.Get_SqlQueryCol(query, "customer_name");
+            tbRegDepartment.Text = SqlServer.Get_SqlQueryCol(query, "department");
+            tbRegRequest.Text = SqlServer.Get_SqlQueryCol(query, "department");
+            tbRegResponse.Text = SqlServer.Get_SqlQueryCol(query, "response");
+            tbRegWorkDate.Text = SqlServer.Get_SqlQueryCol(query, "work_date");
+            cbRegCompany.Text = SqlServer.Get_SqlQueryCol(query, "company_name");
+            cbRegSupportType.Text = SqlServer.Get_SqlQueryCol(query, "support_type");
         }
 
         private void Insert_RegWork()
@@ -293,7 +330,47 @@ namespace Thousands_CRM.Main
 
         private void Update_Work()
         {
+            
+        }
 
+        private void Set_LicenseData()
+        {
+            string query = string.Format(@"SELECT view_data_check, view_data_delete FROM t_user WHERE id = '{0}'", User.userName);
+            string viewDataCheck = SqlServer.Get_SqlQueryCol(query, "view_data_check");
+            string value = "";
+            string tempSql = "";
+
+            string[] spViewDataCheck = viewDataCheck.Split(';');
+
+            for (int i = 0; i < spViewDataCheck.Length; i++)
+            {
+                if (string.IsNullOrEmpty(spViewDataCheck[i]))
+                {
+                    continue;
+                }
+
+                value = Etc.uCtrlViewData.defaultList[spViewDataCheck[i]];
+                tempSql += value;
+
+                if (spViewDataCheck.Length - 2 > i)
+                {
+                    tempSql += ", ";
+                }
+            }
+
+            query = string.Format(@"SELECT {0} FROM t_lic_info as l INNER JOIN t_customer as c WHERE l.manager_name = c.name;", tempSql);
+
+            DataTable dt = SqlServer.Get_DBTable(query);
+            dgvLicense.DataSource = dt;
+        }
+
+        private void Set_SupportData()
+        {
+            string query = string.Format(@"SELECT guid, work_date, support_type, user, company_name, customer_name, request, response FROM t_register_work");
+            DataTable dt = SqlServer.Get_DBTable(query);
+            dgvSupport.DataSource = dt;
+
+            dgvSupport.AutoResizeColumns();
         }
 
         private string[] Get_radioValue()
@@ -303,7 +380,7 @@ namespace Thousands_CRM.Main
             else if (rbRemoteYesR.Checked)  {result[0] = "YseR";}
             else                            {result[0] = "No";}
 
-            if (rbTOSYes.Checked)   { result[1] = "Yes"; }
+            if (rbUserTosYes.Checked)   { result[1] = "Yes"; }
             else                    { result[1] = "No"; }
 
             if (rbLicN.Checked)   { result[2] = "N"; }
@@ -329,20 +406,28 @@ namespace Thousands_CRM.Main
 
         private void Set_radioValue(string remote, string tos, string licN)
         {
-            if (remote == "Yes") { rbRemoteYes.Checked = true; }
-            else if (remote == "YesR") { rbRemoteYesR.Checked = true; }
-            else { rbRemoteNo.Checked = true; }
+            if (!string.IsNullOrEmpty(remote))
+            {
+                if (remote == "Yes") { rbRemoteYes.Checked = true; }
+                else if (remote == "YesR") { rbRemoteYesR.Checked = true; }
+                else { rbRemoteNo.Checked = true; }
+            }
 
-            if (tos == "Yes") { rbTOSYes.Checked = true; }
-            else { rbTOSNo.Checked = true; }
+            if (!string.IsNullOrEmpty(tos))
+            {
+                if (tos == "Yes") { rbUserTosYes.Checked = true; }
+                else { rbUserTosNo.Checked = true; }
+            }
 
-            if (licN == "N") { rbLicN.Checked = true; }
-            else { rbLicS.Checked = true; }
+            if (!string.IsNullOrEmpty(licN))
+            {
+                if (licN == "N") { rbLicN.Checked = true; }
+                else { rbLicS.Checked = true; }
+            }
         }
 
         private void Set_SolutionData(string solution)
         {
-            //string[] splitSolution = solution.Split(';');
             foreach(CheckBox c in gbSolution.Controls)
             {
                 if (solution.Contains(c.Text))
@@ -358,7 +443,7 @@ namespace Thousands_CRM.Main
 
         private void Get_Customer()
         {
-            string query = @"SELECT c1.name as company, c1.area, c2.name, c2.department, c2.mobile_number, c2.phone_number FROM t_company as c1 INNER JOIN t_customer as c2 ON c1.name = c2.company_name";
+            string query = @"SELECT c1.name as company, c2.name, c2.department, c2.mobile_number, c2.phone_number FROM t_company as c1 INNER JOIN t_customer as c2 ON c1.name = c2.company_name";
             DataTable dt = SqlServer.Get_DBTable(query);
             dgvCustomers.DataSource = dt;
         }
@@ -366,11 +451,6 @@ namespace Thousands_CRM.Main
         private void Search_Customer()
         {
             string whereSQL = "";
-
-            if (!string.IsNullOrEmpty(tbArea.Text))
-            {
-                whereSQL = string.Format("c1.area = '{0}'", tbArea.Text);
-            }
 
             if (!string.IsNullOrEmpty(tbCompany.Text))
             {
@@ -411,19 +491,20 @@ namespace Thousands_CRM.Main
             string query = "";
             if (string.IsNullOrEmpty(whereSQL))
             {
-                query = @"SELECT c1.name as Company, c1.area, c2.name, c2.department, c2.mobile_number, c2.phone_number FROM t_company as c1 INNER JOIN t_customer as c2 ON c1.name = c2.company_name";
+                query = @"SELECT c1.name as Company, c2.name, c2.department, c2.mobile_number, c2.phone_number FROM t_company as c1 INNER JOIN t_customer as c2 ON c1.name = c2.company_name";
             }
             else
             {
-                query = string.Format("SELECT c1.name as Company, c1.area, c2.name, c2.department, c2.mobile_number, c2.phone_number FROM t_company as c1 INNER JOIN t_customer as c2 ON c1.name = c2.company_name WHERE {0}", whereSQL);
+                query = string.Format("SELECT c1.name as Company, c2.name, c2.department, c2.mobile_number, c2.phone_number FROM t_company as c1 INNER JOIN t_customer as c2 ON c1.name = c2.company_name WHERE {0}", whereSQL);
             }
 
             DataTable dt = SqlServer.Get_DBTable(query);
             dgvCustomers.DataSource = dt;
         }
 
+        private void tpCustomers_Click(object sender, EventArgs e)
+        {
 
-
-        
+        }
     }
 }

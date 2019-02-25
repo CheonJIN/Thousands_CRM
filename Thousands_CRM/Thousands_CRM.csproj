@@ -60,8 +60,14 @@
     <Compile Include="Etc\frmOption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Etc\frmOption.Designer.cs">
+    <Compile Include="Etc\frmOption.designer.cs">
       <DependentUpon>frmOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etc\uCtrlViewData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Etc\uCtrlViewData.designer.cs">
+      <DependentUpon>uCtrlViewData.cs</DependentUpon>
     </Compile>
     <Compile Include="Management\frmEnroll.cs">
       <SubType>Form</SubType>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Etc\frmOption.resx">
       <DependentUpon>frmOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etc\uCtrlViewData.resx">
+      <DependentUpon>uCtrlViewData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Management\frmEnroll.resx">
       <DependentUpon>frmEnroll.cs</DependentUpon>

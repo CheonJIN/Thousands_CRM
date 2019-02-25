@@ -28,56 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpEnrollCompany = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblAreaSub = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblSalesManager = new System.Windows.Forms.Label();
+            this.btnEnrollCompany = new System.Windows.Forms.Button();
+            this.lblAreaMain = new System.Windows.Forms.Label();
+            this.tbCompanyName = new System.Windows.Forms.TextBox();
+            this.lblCompanyName = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusCompany = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCompanyName = new System.Windows.Forms.Label();
-            this.tbCompanyName = new System.Windows.Forms.TextBox();
-            this.lblAreaMain = new System.Windows.Forms.Label();
-            this.tbArea = new System.Windows.Forms.TextBox();
-            this.btnEnrollCompany = new System.Windows.Forms.Button();
-            this.tpEnrollCustomer = new System.Windows.Forms.TabPage();
-            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
-            this.lblStatusCustomer = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbCustomerName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbMobileNumber = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
-            this.cbCompany = new System.Windows.Forms.ComboBox();
-            this.lblDepartment = new System.Windows.Forms.Label();
-            this.tbDepartment = new System.Windows.Forms.TextBox();
-            this.btnEnrollCustomer = new System.Windows.Forms.Button();
-            this.lblSalesManager = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.lblAreaSub = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.cbAreaMain = new System.Windows.Forms.ComboBox();
+            this.cbAreaSub = new System.Windows.Forms.ComboBox();
             this.tpEnrollCompany.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tpEnrollCustomer.SuspendLayout();
-            this.statusStrip2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tpEnrollCompany);
-            this.tabControl1.Controls.Add(this.tpEnrollCustomer);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(398, 234);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tpEnrollCompany
             // 
@@ -90,6 +61,127 @@
             this.tpEnrollCompany.TabIndex = 0;
             this.tpEnrollCompany.Text = "Company";
             this.tpEnrollCompany.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.lblCompanyName, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tbCompanyName, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblAreaMain, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnEnrollCompany, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lblSalesManager, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblAddress, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lblAreaSub, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cbAreaMain, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cbAreaSub, 1, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 182);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(95, 100);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(206, 20);
+            this.textBox2.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(95, 126);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // lblAreaSub
+            // 
+            this.lblAreaSub.AutoSize = true;
+            this.lblAreaSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAreaSub.Location = new System.Drawing.Point(3, 71);
+            this.lblAreaSub.Name = "lblAreaSub";
+            this.lblAreaSub.Size = new System.Drawing.Size(86, 26);
+            this.lblAreaSub.TabIndex = 7;
+            this.lblAreaSub.Text = "Area(sub) :";
+            this.lblAreaSub.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAddress.Location = new System.Drawing.Point(3, 123);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(86, 26);
+            this.lblAddress.TabIndex = 6;
+            this.lblAddress.Text = "Address :";
+            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSalesManager
+            // 
+            this.lblSalesManager.AutoSize = true;
+            this.lblSalesManager.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSalesManager.Location = new System.Drawing.Point(3, 97);
+            this.lblSalesManager.Name = "lblSalesManager";
+            this.lblSalesManager.Size = new System.Drawing.Size(86, 26);
+            this.lblSalesManager.TabIndex = 5;
+            this.lblSalesManager.Text = "Sales manager :";
+            this.lblSalesManager.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnEnrollCompany
+            // 
+            this.btnEnrollCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnrollCompany.Location = new System.Drawing.Point(312, 158);
+            this.btnEnrollCompany.Name = "btnEnrollCompany";
+            this.btnEnrollCompany.Size = new System.Drawing.Size(75, 21);
+            this.btnEnrollCompany.TabIndex = 4;
+            this.btnEnrollCompany.Text = "Enroll";
+            this.btnEnrollCompany.UseVisualStyleBackColor = true;
+            this.btnEnrollCompany.Click += new System.EventHandler(this.btnEnrollCompany_Click);
+            // 
+            // lblAreaMain
+            // 
+            this.lblAreaMain.AutoSize = true;
+            this.lblAreaMain.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblAreaMain.Location = new System.Drawing.Point(26, 45);
+            this.lblAreaMain.Name = "lblAreaMain";
+            this.lblAreaMain.Size = new System.Drawing.Size(63, 26);
+            this.lblAreaMain.TabIndex = 2;
+            this.lblAreaMain.Text = "Area(main) :";
+            this.lblAreaMain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbCompanyName
+            // 
+            this.tbCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbCompanyName.Location = new System.Drawing.Point(95, 22);
+            this.tbCompanyName.Name = "tbCompanyName";
+            this.tbCompanyName.Size = new System.Drawing.Size(206, 20);
+            this.tbCompanyName.TabIndex = 1;
+            // 
+            // lblCompanyName
+            // 
+            this.lblCompanyName.AutoSize = true;
+            this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblCompanyName.Location = new System.Drawing.Point(3, 19);
+            this.lblCompanyName.Name = "lblCompanyName";
+            this.lblCompanyName.Size = new System.Drawing.Size(86, 26);
+            this.lblCompanyName.TabIndex = 0;
+            this.lblCompanyName.Text = "Company name :";
+            this.lblCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // statusStrip1
             // 
@@ -106,304 +198,48 @@
             this.lblStatusCompany.Name = "lblStatusCompany";
             this.lblStatusCompany.Size = new System.Drawing.Size(0, 17);
             // 
-            // tableLayoutPanel1
+            // tabControl1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.lblCompanyName, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tbCompanyName, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblAreaMain, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tbArea, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnEnrollCompany, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.lblSalesManager, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.lblAddress, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.lblAreaSub, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 4);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 182);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tabControl1.Controls.Add(this.tpEnrollCompany);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(398, 234);
+            this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // lblCompanyName
+            // cbAreaMain
             // 
-            this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblCompanyName.Location = new System.Drawing.Point(3, 19);
-            this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(86, 26);
-            this.lblCompanyName.TabIndex = 0;
-            this.lblCompanyName.Text = "Company name :";
-            this.lblCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbAreaMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbAreaMain.FormattingEnabled = true;
+            this.cbAreaMain.Items.AddRange(new object[] {
+            "서울",
+            "대전",
+            "부산",
+            "창원",
+            "광주"});
+            this.cbAreaMain.Location = new System.Drawing.Point(95, 48);
+            this.cbAreaMain.Name = "cbAreaMain";
+            this.cbAreaMain.Size = new System.Drawing.Size(206, 21);
+            this.cbAreaMain.TabIndex = 10;
+            this.cbAreaMain.Text = "서울";
             // 
-            // tbCompanyName
+            // cbAreaSub
             // 
-            this.tbCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCompanyName.Location = new System.Drawing.Point(95, 22);
-            this.tbCompanyName.Name = "tbCompanyName";
-            this.tbCompanyName.Size = new System.Drawing.Size(206, 20);
-            this.tbCompanyName.TabIndex = 1;
-            // 
-            // lblAreaMain
-            // 
-            this.lblAreaMain.AutoSize = true;
-            this.lblAreaMain.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblAreaMain.Location = new System.Drawing.Point(26, 45);
-            this.lblAreaMain.Name = "lblAreaMain";
-            this.lblAreaMain.Size = new System.Drawing.Size(63, 26);
-            this.lblAreaMain.TabIndex = 2;
-            this.lblAreaMain.Text = "Area(main) :";
-            this.lblAreaMain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbArea
-            // 
-            this.tbArea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbArea.Location = new System.Drawing.Point(95, 48);
-            this.tbArea.Name = "tbArea";
-            this.tbArea.Size = new System.Drawing.Size(206, 20);
-            this.tbArea.TabIndex = 3;
-            // 
-            // btnEnrollCompany
-            // 
-            this.btnEnrollCompany.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnrollCompany.Location = new System.Drawing.Point(312, 158);
-            this.btnEnrollCompany.Name = "btnEnrollCompany";
-            this.btnEnrollCompany.Size = new System.Drawing.Size(75, 21);
-            this.btnEnrollCompany.TabIndex = 4;
-            this.btnEnrollCompany.Text = "Enroll";
-            this.btnEnrollCompany.UseVisualStyleBackColor = true;
-            this.btnEnrollCompany.Click += new System.EventHandler(this.btnEnrollCompany_Click);
-            // 
-            // tpEnrollCustomer
-            // 
-            this.tpEnrollCustomer.Controls.Add(this.statusStrip2);
-            this.tpEnrollCustomer.Controls.Add(this.tableLayoutPanel2);
-            this.tpEnrollCustomer.Location = new System.Drawing.Point(4, 22);
-            this.tpEnrollCustomer.Name = "tpEnrollCustomer";
-            this.tpEnrollCustomer.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEnrollCustomer.Size = new System.Drawing.Size(390, 208);
-            this.tpEnrollCustomer.TabIndex = 1;
-            this.tpEnrollCustomer.Text = "Customer";
-            this.tpEnrollCustomer.UseVisualStyleBackColor = true;
-            this.tpEnrollCustomer.Click += new System.EventHandler(this.tpEnrollCustomer_Click);
-            // 
-            // statusStrip2
-            // 
-            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatusCustomer});
-            this.statusStrip2.Location = new System.Drawing.Point(3, 183);
-            this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(384, 22);
-            this.statusStrip2.TabIndex = 2;
-            this.statusStrip2.Text = "statusStrip2";
-            // 
-            // lblStatusCustomer
-            // 
-            this.lblStatusCustomer.Name = "lblStatusCustomer";
-            this.lblStatusCustomer.Size = new System.Drawing.Size(0, 17);
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tbCustomerName, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.tbMobileNumber, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.tbPhoneNumber, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.cbCompany, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.lblDepartment, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.tbDepartment, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.btnEnrollCustomer, 2, 6);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 177);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(48, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbCustomerName
-            // 
-            this.tbCustomerName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCustomerName.Location = new System.Drawing.Point(95, 22);
-            this.tbCustomerName.Name = "tbCustomerName";
-            this.tbCustomerName.Size = new System.Drawing.Size(206, 20);
-            this.tbCustomerName.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(7, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 26);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Mobile number :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbMobileNumber
-            // 
-            this.tbMobileNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbMobileNumber.Location = new System.Drawing.Point(95, 48);
-            this.tbMobileNumber.Name = "tbMobileNumber";
-            this.tbMobileNumber.Size = new System.Drawing.Size(206, 20);
-            this.tbMobileNumber.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(7, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 26);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Phone number :";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(32, 97);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 26);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Company :";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbPhoneNumber
-            // 
-            this.tbPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPhoneNumber.Location = new System.Drawing.Point(95, 74);
-            this.tbPhoneNumber.Name = "tbPhoneNumber";
-            this.tbPhoneNumber.Size = new System.Drawing.Size(206, 20);
-            this.tbPhoneNumber.TabIndex = 7;
-            // 
-            // cbCompany
-            // 
-            this.cbCompany.AllowDrop = true;
-            this.cbCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbCompany.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbCompany.FormattingEnabled = true;
-            this.cbCompany.Location = new System.Drawing.Point(95, 100);
-            this.cbCompany.Name = "cbCompany";
-            this.cbCompany.Size = new System.Drawing.Size(206, 21);
-            this.cbCompany.TabIndex = 8;
-            // 
-            // lblDepartment
-            // 
-            this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblDepartment.Location = new System.Drawing.Point(21, 123);
-            this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(68, 26);
-            this.lblDepartment.TabIndex = 9;
-            this.lblDepartment.Text = "Department :";
-            this.lblDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbDepartment
-            // 
-            this.tbDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDepartment.Location = new System.Drawing.Point(95, 126);
-            this.tbDepartment.Name = "tbDepartment";
-            this.tbDepartment.Size = new System.Drawing.Size(206, 20);
-            this.tbDepartment.TabIndex = 10;
-            // 
-            // btnEnrollCustomer
-            // 
-            this.btnEnrollCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnrollCustomer.Location = new System.Drawing.Point(307, 152);
-            this.btnEnrollCustomer.Name = "btnEnrollCustomer";
-            this.btnEnrollCustomer.Size = new System.Drawing.Size(75, 22);
-            this.btnEnrollCustomer.TabIndex = 4;
-            this.btnEnrollCustomer.Text = "Enroll";
-            this.btnEnrollCustomer.UseVisualStyleBackColor = true;
-            this.btnEnrollCustomer.Click += new System.EventHandler(this.btnEnrollCustomer_Click);
-            // 
-            // lblSalesManager
-            // 
-            this.lblSalesManager.AutoSize = true;
-            this.lblSalesManager.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSalesManager.Location = new System.Drawing.Point(3, 97);
-            this.lblSalesManager.Name = "lblSalesManager";
-            this.lblSalesManager.Size = new System.Drawing.Size(86, 26);
-            this.lblSalesManager.TabIndex = 5;
-            this.lblSalesManager.Text = "Sales manager :";
-            this.lblSalesManager.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblAddress.Location = new System.Drawing.Point(3, 123);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(86, 26);
-            this.lblAddress.TabIndex = 6;
-            this.lblAddress.Text = "Address :";
-            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblAreaSub
-            // 
-            this.lblAreaSub.AutoSize = true;
-            this.lblAreaSub.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblAreaSub.Location = new System.Drawing.Point(3, 71);
-            this.lblAreaSub.Name = "lblAreaSub";
-            this.lblAreaSub.Size = new System.Drawing.Size(86, 26);
-            this.lblAreaSub.TabIndex = 7;
-            this.lblAreaSub.Text = "Area(sub) :";
-            this.lblAreaSub.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(95, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(95, 100);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 20);
-            this.textBox2.TabIndex = 9;
+            this.cbAreaSub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbAreaSub.FormattingEnabled = true;
+            this.cbAreaSub.Items.AddRange(new object[] {
+            "서울",
+            "대전",
+            "부산",
+            "창원",
+            "광주"});
+            this.cbAreaSub.Location = new System.Drawing.Point(95, 74);
+            this.cbAreaSub.Name = "cbAreaSub";
+            this.cbAreaSub.Size = new System.Drawing.Size(206, 21);
+            this.cbAreaSub.TabIndex = 11;
+            this.cbAreaSub.Text = "서울";
             // 
             // frmEnroll
             // 
@@ -414,54 +250,35 @@
             this.Name = "frmEnroll";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Enroll";
-            this.tabControl1.ResumeLayout(false);
             this.tpEnrollCompany.ResumeLayout(false);
             this.tpEnrollCompany.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tpEnrollCustomer.ResumeLayout(false);
-            this.tpEnrollCustomer.PerformLayout();
-            this.statusStrip2.ResumeLayout(false);
-            this.statusStrip2.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpEnrollCompany;
-        private System.Windows.Forms.TabPage tpEnrollCustomer;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatusCompany;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblCompanyName;
         private System.Windows.Forms.TextBox tbCompanyName;
         private System.Windows.Forms.Label lblAreaMain;
-        private System.Windows.Forms.TextBox tbArea;
         private System.Windows.Forms.Button btnEnrollCompany;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbCustomerName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbMobileNumber;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnEnrollCustomer;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbPhoneNumber;
-        private System.Windows.Forms.ComboBox cbCompany;
-        private System.Windows.Forms.Label lblDepartment;
-        private System.Windows.Forms.TextBox tbDepartment;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel lblStatusCompany;
-        private System.Windows.Forms.StatusStrip statusStrip2;
-        private System.Windows.Forms.ToolStripStatusLabel lblStatusCustomer;
         private System.Windows.Forms.Label lblSalesManager;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblAreaSub;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cbAreaMain;
+        private System.Windows.Forms.ComboBox cbAreaSub;
+        private System.Windows.Forms.TabControl tabControl1;
+
     }
 }

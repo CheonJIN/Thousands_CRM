@@ -31,24 +31,7 @@ namespace Thousands_CRM.Enroll
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab == tpEnrollCustomer)
-            {
-                if (cbCompany.Items.Count != 0)
-                {
-                    return;
-                }
-
-                lblStatusCompany.Text = "";
-                lblStatusCustomer.Text = "";
-
-                List<string> results = Set_ComboItemsByCompany();
-
-                foreach(string s in results)
-                {
-                    cbCompany.Items.Add(s);
-                }
-                cbCompany.SelectedIndex = 0;
-            }
+            
         }
 
         public List<string> Set_ComboItemsByCompany()
@@ -75,25 +58,13 @@ namespace Thousands_CRM.Enroll
                         {
                             return;
                         }
-                        query = string.Format("INSERT INTO t_company(name, area) VALUES('{0}', '{1}');", tbCompanyName.Text, tbArea.Text);
+
+                        query = string.Format("INSERT INTO t_company(name, area_main, area_sub) VALUES('{0}', '{1}', '{2}');", tbCompanyName.Text, cbAreaMain.Text, cbAreaSub.Text);
                         mysql.Set_SqlQuery(query);
                         lblStatusCompany.Text = string.Format("Finished enroll the '{0}'...", tbCompanyName.Text);
                         tbCompanyName.Text = "";
-                        tbArea.Text = "";
-                        Console.WriteLine("Insert a data in t_company");
-                        break;
 
-                    case ENROLL_TYPE.CUSTOMER:
-                        if (!Check_Control(ENROLL_TYPE.CUSTOMER))
-                        {
-                            return;
-                        }
-                        query = string.Format("INSERT INTO t_customer VALUES ('{0}', '{1}', '{2}', '{3}', '{4}');", cbCompany.SelectedItem, tbCustomerName.Text, tbMobileNumber.Text, tbPhoneNumber.Text, tbDepartment.Text);
-                        mysql.Set_SqlQuery(query);
-                        lblStatusCustomer.Text = string.Format("Finished enroll the '{0}'...", tbCustomerName.Text);
-                        tbCustomerName.Text = "";
-                        tbMobileNumber.Text = "";
-                        Console.WriteLine("insert a data in t_customer");
+                        Console.WriteLine("Insert a data in t_company");
                         break;
                 }
             }
@@ -120,24 +91,7 @@ namespace Thousands_CRM.Enroll
                         tbCompanyName.Focus();
                         return false;
                     }
-                    else if (string.IsNullOrEmpty(tbArea.Text))
-                    {
-                        tbArea.Focus();
-                        return false;
-                    }
-                    break;
-
-                case ENROLL_TYPE.CUSTOMER:
-                    if (string.IsNullOrEmpty(tbCustomerName.Text))
-                    {
-                        tbCustomerName.Focus();
-                        return false;
-                    }
-                    else if (string.IsNullOrEmpty(tbMobileNumber.Text))
-                    {
-                        tbMobileNumber.Focus();
-                        return false;
-                    }
+                    
                     break;
             }
 
